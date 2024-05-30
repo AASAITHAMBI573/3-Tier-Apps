@@ -46,7 +46,7 @@ pipeline {
             steps{
                 script {
                     withDockerRegistry(credentialsId: 'docker-pass', toolName: 'docker') {
-                        sh "docker build -t aasaithambi5/3-tier-app:latest"
+                        sh "docker build -t aasaithambi5/3-tier-app:latest ."
                     }
                 }
             }
