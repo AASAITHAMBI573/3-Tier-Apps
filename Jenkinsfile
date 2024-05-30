@@ -30,7 +30,7 @@ pipeline {
 
         stage('Trivy FS Scan'){
             steps{
-                sh "trivy fs --format table -o fs-report.html ."
+                sh "trivy fs --format table -o fs-report.txt ."
             }
         }
 
@@ -45,8 +45,8 @@ pipeline {
         stage('Docker Build & Tag'){
             steps{
                 script {
-                withDockerRegistry(credentialsId: 'docker-pass', toolName: 'docker') {
-                    sh "docker push aasaithambi5/3-tier-app:latest"
+                    withDockerRegistry(credentialsId: 'docker-pass', toolName: 'docker') {
+                        sh "docker build -t aasaithambi5/3-tier-app:latest"
                     }
                 }
             }
