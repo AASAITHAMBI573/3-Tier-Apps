@@ -30,7 +30,7 @@ pipeline {
 
         stage('Trivy FS Scan'){
             steps{
-                sh "trivy fs --format table -o fs-report.txt ."
+                sh "trivy fs --format table -o fs-report.html ."
             }
         }
 
@@ -54,7 +54,7 @@ pipeline {
 
         stage('Trivy Image Scan'){
             steps{
-                sh "trivy image --format table -o fs-report.txt aasaithambi5/3-tier-app:latest"
+                sh "trivy image --format table -o fs-image-report.html aasaithambi5/3-tier-app:latest"
             }
         }
 
